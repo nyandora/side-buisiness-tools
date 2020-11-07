@@ -17,7 +17,7 @@ class Area(private val areaId: String, private val areaName: String) {
     fun collectEvents(yearMonth: String): String {
         val baseUrl = "${URL_BASE}${yearMonth}/${areaId}/"
 
-        val urls = listOf<String>(baseUrl) // + (2..100).toList().map { idx -> "${baseUrl}${idx}.html" }
+        val urls = listOf<String>(baseUrl) + (2..100).toList().map { idx -> "${baseUrl}${idx}.html" }
 
         return urls.map { url -> collectEventsOf(url) }.joinToString("")
     }
